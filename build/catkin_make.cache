@@ -1,0 +1,2 @@
+spektrum_receiver
+-DCATKIN_DEVEL_PREFIX=/home/pi/Plane-ws/devel -DCMAKE_INSTALL_PREFIX=/home/pi/Plane-ws/install -G Unix Makefiles

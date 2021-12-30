@@ -1,0 +1,8 @@
+prefix=/home/pi/Plane-ws/devel
+
+Name: spektrum_Receiver
+Description: Description of spektrum_Receiver
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
