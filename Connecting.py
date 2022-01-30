@@ -75,7 +75,7 @@ def parse_channel_data(data):
 
 print("Throttle     Roll    Pitch      Yaw     AUX1     AUX2")
 
-ser = serial.Serial(port="/dev/serial0",
+ser = serial.Serial(port="/dev/serial1",
                     baudrate=115200,
                     bytesize=serial.EIGHTBITS,
                     parity=serial.PARITY_NONE,
