@@ -97,6 +97,7 @@ try:
                 servo_position[:6]))
         sys.stdout.flush()
         ser.write(data_buf)
+        print("Connected")
 except(KeyboardInterrupt, SystemExit):
     ser.close()
 except(Exception) as ex:
