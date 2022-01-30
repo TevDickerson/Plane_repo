@@ -10,6 +10,8 @@ GPIO.setup(4, GPIO.OUT)
 
 try:
     GPIO.output(4, GPIO.HIGH)
+    while True:
+        pass
 
 except(KeyboardInterrupt, SystemExit):
     GPIO.output(4, GPIO.LOW)
