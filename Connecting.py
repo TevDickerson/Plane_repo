@@ -35,7 +35,6 @@ try:
     print("Number of pulses", bindPulses)
 
     for i in range(bindPulses):
-        print(i)
         GPIO.output(RXPIN, GPIO.HIGH)
         time.sleep(0.1)
         GPIO.output(RXPIN, GPIO.LOW)
