@@ -9,24 +9,47 @@ RXPIN = 15
 
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(POWERPIN, GPIO.OUT)
-GPIO.setup(RXPIN, GPIO.OUT)
+
+
 BINDING_PULSE_DELAY_MS = 100
 bindPulses = 7
 
 
 try:
-    GPIO.output(POWERPIN, GPIO.HIGH)
+    print("Start-Binding")
+    GPIO.setup(RXPIN, GPIO.OUT)
+    GPIO.output(RXPIN, GPIO.LOW)
+
+    GPIO.setup(POWERPIN, GPIO.OUT)
+    GPIO.output(POWERPIN, GPIO.LOW)
+
     GPIO.output(RXPIN, GPIO.HIGH)
+
+    time.sleep(2)
+
+    GPIO.setup(POWERPIN, GPIO.OUT)
+    GPIO.output(POWERPIN, GPIO.HIGH)
+
+    time.sleep(0.05)
+
+    print("Number of pulses", bindPulses)
+
     for i in range(bindPulses):
         print(i)
+        GPIO.output(RXPIN, GPIO.HIGH)
+        time.sleep(0.1)
+        GPIO.output(RXPIN, GPIO.LOW)
+        time.sleep(0.1)
+
+    print("Pulses Done")
+    time.sleep(0.5)
+    GPIO.setup(RXPIN, GPIO.IN)
+
 
     while True:
         pass
 
 except(KeyboardInterrupt, SystemExit):
-    GPIO.output(POWERPIN, GPIO.LOW)
-    GPIO.output(RXPIN, GPIO.LOW)
     GPIO.cleanup()
 
 
