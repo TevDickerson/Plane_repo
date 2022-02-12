@@ -4,15 +4,17 @@ import sys
 
 import RPi.GPIO as GPIO
 
+TESTPIN = 17
+
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(4, GPIO.OUT)
+GPIO.setup(TESTPIN, GPIO.OUT)
 BINDING_PULSE_DELAY_MS = 100
 bindPulses = 7
 
 
 try:
-    GPIO.output(4, GPIO.HIGH)
+    GPIO.output(TESTPIN, GPIO.HIGH)
 
     for i in range(bindPulses):
         print(i)
@@ -21,7 +23,7 @@ try:
         pass
 
 except(KeyboardInterrupt, SystemExit):
-    GPIO.output(4, GPIO.LOW)
+    GPIO.output(TESTPIN, GPIO.LOW)
     GPIO.cleanup()
 
 
