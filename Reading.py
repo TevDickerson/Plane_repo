@@ -17,9 +17,15 @@ try:
     GPIO.setup(POWERPIN, GPIO.OUT)
     GPIO.output(POWERPIN, GPIO.HIGH)
 
-    GPIO.setup(RXPIN, GPIO.IN)
+    ser = serial.Serial(port="/dev/serial1",
+                        baudrate=115200,
+                        bytesize=serial.EIGHTBITS,
+                        parity=serial.PARITY_NONE,
+                        stopbits=serial.STOPBITS_ONE)
 
     while True:
+        x = ser.readline()
+        print(x)
         pass
 
 except(KeyboardInterrupt, SystemExit):
