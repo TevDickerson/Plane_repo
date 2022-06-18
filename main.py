@@ -94,5 +94,5 @@ try:
 except(KeyboardInterrupt, SystemExit):
     ser.close()
 except(Exception) as ex:
-    print ex
+    print(ex)
     ser.close()
