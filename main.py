@@ -64,8 +64,8 @@ def parse_channel_data(data):
     channel_id, channel_data
     """
     print("Got CHannel ID", data[0])
-    ch_id = (ord(data[0]) & MASK_CH_ID) >> SHIFT_CH_ID
-    print("Got CHannel ID",)                                            # data[0] = 12
+    ch_id = (ord(chr(data[0])) & MASK_CH_ID) >> SHIFT_CH_ID
+    print("Got CHannel ID",ch_id)                                            # data[0] = 12
     ch_data = (
         ((ord(data[0]) & MASK_SERVO_POS_HIGH) << 8) | ord(data[1]))
     ch_data = 988 + (ch_data >> 1)
@@ -89,7 +89,7 @@ try:
         print("Data", data)                         # data = b'\x0c\x08,\x00\x14\x06$\x00\x1b\xf94\x00\x01V'
         for i in range(7):
             print("CHannel ID", i)
-            print("Data to Parse", data[2*i:2*i+2])
+            print("Data to Parse", data[2*i:2*i+2])  # data[2*i:2*i+2] = b'\x0c\x08'
             ch_id, s_pos = parse_channel_data(data[2*i:2*i+2])
 
             servo_position[ch_id] = s_pos
