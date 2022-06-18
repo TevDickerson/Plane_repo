@@ -84,9 +84,9 @@ try:
     align_serial(ser)
     while True:
         data_buf = ser.read(16)
-        #print("Data_buf", data_buf)                 # Data_buf = b'\x01\xa2\x0c\x08,\x00\x14\x06$\x00\x1b\xfa4\x00\x01V'
+        print("Data_buf", data_buf)                 # Data_buf = b'\x01\xa2\x0c\x08,\x00\x14\x06$\x00\x1b\xfa4\x00\x01V'
         data = data_buf[2:]
-        #print("Data", data)                         # data = b'\x0c\x08,\x00\x14\x06$\x00\x1b\xf94\x00\x01V'
+        print("Data", data)                         # data = b'\x0c\x08,\x00\x14\x06$\x00\x1b\xf94\x00\x01V'
         for i in range(7):
             ch_id, s_pos = parse_channel_data(data[2*i:2*i+2])
             servo_position[ch_id] = s_pos
