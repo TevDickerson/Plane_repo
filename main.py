@@ -63,9 +63,9 @@ def parse_channel_data(data):
     -------
     channel_id, channel_data
     """
-    print("data[0]", data[0])
+    # print("data[0]", data[0])
     ch_id = (ord(chr(data[0])) & MASK_CH_ID) >> SHIFT_CH_ID
-    print("Got CHannel ID",ch_id)                                            # data[0] = 12
+    # print("Got CHannel ID",ch_id)                                            # data[0] = 12
     ch_data = (
         ((ord(chr(data[0])) & MASK_SERVO_POS_HIGH) << 8) | ord(chr(data[1])))
     ch_data = 988 + (ch_data >> 1)
@@ -84,12 +84,12 @@ try:
     align_serial(ser)
     while True:
         data_buf = ser.read(16)
-        print("Data_buf", data_buf)                 # Data_buf = b'\x01\xa2\x0c\x08,\x00\x14\x06$\x00\x1b\xfa4\x00\x01V'
+        # print("Data_buf", data_buf)   # Data_buf = b'\x01\xa2\x0c\x08,\x00\x14\x06$\x00\x1b\xfa4\x00\x01V'
         data = data_buf[2:]
-        print("Data", data)                         # data = b'\x0c\x08,\x00\x14\x06$\x00\x1b\xf94\x00\x01V'
+        # print("Data", data)                         # data = b'\x0c\x08,\x00\x14\x06$\x00\x1b\xf94\x00\x01V'
         for i in range(7):
-            print("CHannel ID", i)
-            print("Data to Parse", data[2*i:2*i+2])  # data[2*i:2*i+2] = b'\x0c\x08'
+            # print("CHannel ID", i)
+            # print("Data to Parse", data[2*i:2*i+2])  # data[2*i:2*i+2] = b'\x0c\x08'
             ch_id, s_pos = parse_channel_data(data[2*i:2*i+2])
 
             servo_position[ch_id] = s_pos
