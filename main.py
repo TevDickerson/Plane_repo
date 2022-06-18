@@ -63,11 +63,11 @@ def parse_channel_data(data):
     -------
     channel_id, channel_data
     """
-    print("Got CHannel ID", data[0])
+    print("data[0]", data[0])
     ch_id = (ord(chr(data[0])) & MASK_CH_ID) >> SHIFT_CH_ID
     print("Got CHannel ID",ch_id)                                            # data[0] = 12
     ch_data = (
-        ((ord(data[0]) & MASK_SERVO_POS_HIGH) << 8) | ord(data[1]))
+        ((ord(chr(data[0])) & MASK_SERVO_POS_HIGH) << 8) | ord(data[1]))
     ch_data = 988 + (ch_data >> 1)
     return ch_id, ch_data
 
