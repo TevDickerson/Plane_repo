@@ -88,7 +88,9 @@ try:
         data = data_buf[2:]
         print("Data", data)                         # data = b'\x0c\x08,\x00\x14\x06$\x00\x1b\xf94\x00\x01V'
         for i in range(7):
+            print("CHannel ID", i)
             ch_id, s_pos = parse_channel_data(data[2*i:2*i+2])
+
             servo_position[ch_id] = s_pos
         sys.stdout.write(
             "    %4d     %4d     %4d     %4d     %4d     %4d\r"%tuple(
