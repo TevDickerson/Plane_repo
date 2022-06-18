@@ -84,6 +84,7 @@ try:
     align_serial(ser)
     while True:
         data_buf = ser.read(16)
+        print("Data_buf", data_buf)
         data = data_buf[2:]
         for i in range(7):
             ch_id, s_pos = parse_channel_data(data[2*i:2*i+2])
