@@ -77,7 +77,7 @@ ser = serial.Serial(
     bytesize=serial.EIGHTBITS,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE)
-N_CHAN = 12
+N_CHAN = 5
 data = None
 servo_position = [0 for i in range(N_CHAN)]
 try:
@@ -95,7 +95,7 @@ try:
             servo_position[ch_id] = s_pos
         sys.stdout.write(
             "    %4d     %4d     %4d     %4d     %4d     %4d\r"%tuple(
-            servo_position[:8]))
+            servo_position[:6]))
         sys.stdout.flush()
         ser.write(data_buf)
 except(KeyboardInterrupt, SystemExit):
