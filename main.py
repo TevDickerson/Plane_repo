@@ -95,7 +95,7 @@ try:
             servo_position[ch_id] = s_pos
         sys.stdout.write(
             "    %4d     %4d     %4d     %4d     %4d     %4d\r"%tuple(
-            servo_position[:6]))
+            servo_position[:8]))
         sys.stdout.flush()
         ser.write(data_buf)
 except(KeyboardInterrupt, SystemExit):
