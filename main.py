@@ -6,9 +6,9 @@ packets on the the flight control board
 import serial
 import time
 import sys
-from PCA9685 import PCA9685
 
-pwm = PCA9685(0x40)
+from adafruit_servokit import ServoKit
+kit = ServoKit(channels=16)
 
 def align_serial(ser):
     """Aligns the serial stream with the incoming Spektrum packets
