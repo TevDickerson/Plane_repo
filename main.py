@@ -103,7 +103,7 @@ try:
             servo_position[:6]))
         sys.stdout.flush()
         ser.write(data_buf)
-        kit.servo[0].angle = ((servo_position[0] - 1159)/1840) * 180  #1840 - 1159
+        kit.servo[0].angle = ((servo_position[0] - 1159)/681) * 180  #1840 - 1159
 except(KeyboardInterrupt, SystemExit):
     ser.close()
 except(Exception) as ex:
