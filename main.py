@@ -10,7 +10,7 @@ import sys
 from adafruit_servokit import ServoKit
 kit = ServoKit(channels=16)
 kit.servo[0].set_pulse_width_range(1000, 2000)
-
+kit.servo[1].set_pulse_width_range(1000, 2000)
 
 def align_serial(ser):
     """Aligns the serial stream with the incoming Spektrum packets
@@ -104,6 +104,7 @@ try:
         sys.stdout.flush()
         ser.write(data_buf)
         kit.servo[0].angle = ((servo_position[0] - 1159)/681) * 180  #1840 - 1159
+        kit.servo[1].angle = ((servo_position[1] - 1159) / 681) * 180  # 1840 - 1159
 except(KeyboardInterrupt, SystemExit):
     ser.close()
 except(Exception) as ex:
