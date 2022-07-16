@@ -8,6 +8,8 @@ import time
 import sys
 from PCA9685 import PCA9685
 
+pwm = PCA9685(0x40)
+
 def align_serial(ser):
     """Aligns the serial stream with the incoming Spektrum packets
     Spektrum Remote Receivers (AKA Spektrum Satellite) communicate serially
